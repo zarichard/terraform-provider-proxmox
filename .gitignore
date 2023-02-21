@@ -41,3 +41,5 @@ modules-dev/
 
 # Binary
 terraform-provider-proxmox*
+
+.cache
