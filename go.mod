@@ -1,4 +1,4 @@
-module github.com/bpg/terraform-provider-proxmox
+module github.com/zarichard/terraform-provider-proxmox
 
 go 1.18
 

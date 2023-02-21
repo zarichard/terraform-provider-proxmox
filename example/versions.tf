@@ -5,7 +5,7 @@ terraform {
       version = "2.2.2"
     }
     proxmox = {
-      source  = "bpg/proxmox"
+      source  = "zarichard/proxmox"
       version = "9999.0.0"
     }
     tls = {
