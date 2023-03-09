@@ -1,7 +1,7 @@
 pull_request_rules:
-  - name: Automatic approval of bpg`s pull requests
+  - name: Automatic approval of zarichards`s pull requests
     conditions:
-      - author=bpg
+      - author=zarichard
       - label=autoapprove
       - "#approved-reviews-by=0"
     actions:
