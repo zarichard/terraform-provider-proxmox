@@ -6,15 +6,19 @@ package proxmoxtf
 
 import (
 	"context"
+	"errors"
 	"fmt"
+	"strconv"
+	"strings"
 
 	"github.com/hashicorp/terraform-plugin-sdk/v2/diag"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
+	"github.com/zarichard/terraform-provider-proxmox/proxmox"
 )
 
 const (
 	dvResourceVirtualEnvironmentPersistentDiskName   = "persistent-1"
-	dvResourceVirtualEnvironmentPersistentDiskSize   = "10G"
+	dvResourceVirtualEnvironmentPersistentDiskSize   = "10"
 	dvResourceVirtualEnvironmentPersistentDiskFormat = "raw"
 
 	mkResourceVirtualEnvironmentPersistentDiskNodeName = "node_name"
@@ -54,8 +58,8 @@ func resourceVirtualEnvironmenPersistentDisk() *schema.Resource {
 				ForceNew:    true,
 			},
 			mkResourceVirtualEnvironmentPersistentDiskSize: {
-				Type:        schema.TypeString,
-				Description: "Size of disk. Default unit is kilobytes, supports suffixes M (1024K) and G (1024M)",
+				Type:        schema.TypeInt,
+				Description: "The disk size in gigabytes",
 				Optional:    true,
 				Default:     dvResourceVirtualEnvironmentPersistentDiskSize,
 				ForceNew:    true,
@@ -90,7 +94,7 @@ func resourceVirtualEnvironmentPersistentDiskCreate(
 	storage := d.Get(mkResourceVirtualEnvironmentPersistentDiskStorage).(string)
 	vmID := d.Get(mkResourceVirtualEnvironmentPersistentDiskVmID).(int)
 	diskName := d.Get(mkResourceVirtualEnvironmentPersistentDiskName).(string)
-	diskSize := d.Get(mkResourceVirtualEnvironmentPersistentDiskSize).(string)
+	diskSize := d.Get(mkResourceVirtualEnvironmentPersistentDiskSize).(int)
 	diskFormat := d.Get(mkResourceVirtualEnvironmentPersistentDiskFormat).(string)
 
 	var commands []string
@@ -100,9 +104,9 @@ func resourceVirtualEnvironmentPersistentDiskCreate(
 		fmt.Sprintf(`storage="%s"`, storage),
 		fmt.Sprintf(`vm_id="%d"`, vmID),
 		fmt.Sprintf(`disk_name="%s"`, diskName),
-		fmt.Sprintf(`disk_size="%s"`, diskSize),
+		fmt.Sprintf(`disk_size="%d"`, diskSize),
 		fmt.Sprintf(`disk_format="%s"`, diskFormat),
-		`pvesm alloc ${storage} ${vm_id} vm-${vm_id}-${disk_name} ${disk_size} --format ${disk_format}`,
+		`pvesm alloc ${storage} ${vm_id} vm-${vm_id}-${disk_name} ${disk_size}G --format ${disk_format}`,
 	)
 
 	err = veClient.ExecuteNodeCommands(ctx, nodeName, commands)
@@ -120,6 +124,92 @@ func resourceVirtualEnvironmentPersistentDiskRead(
 	d *schema.ResourceData,
 	m interface{},
 ) diag.Diagnostics {
+	config := m.(providerConfiguration)
+	veClient, err := config.GetVEClient()
+	if err != nil {
+		return diag.FromErr(err)
+	}
+
+	closeOrLogError := proxmox.CloseOrLogError(ctx)
+
+	nodeName := d.Get(mkResourceVirtualEnvironmentPersistentDiskNodeName).(string)
+	storage := d.Get(mkResourceVirtualEnvironmentPersistentDiskStorage).(string)
+	vmID := d.Get(mkResourceVirtualEnvironmentPersistentDiskVmID).(int)
+	diskName := fmt.Sprintf(`vm-%d-%s`, vmID, d.Get(mkResourceVirtualEnvironmentPersistentDiskName).(string))
+
+	sshClient, err := veClient.OpenNodeShell(ctx, nodeName)
+	if err != nil {
+		return diag.FromErr(err)
+	}
+	defer closeOrLogError(sshClient)
+
+	sshSession, err := sshClient.NewSession()
+	if err != nil {
+		return diag.FromErr(err)
+	}
+	defer closeOrLogError(sshSession)
+
+	var commands []string
+	commands = append(
+		commands,
+		`set -e`,
+		fmt.Sprintf(`storage="%s"`, storage),
+		fmt.Sprintf(`vm_id="%d"`, vmID),
+		`pvesm list ${storage} --vmid ${vm_id} --content images`,
+	)
+
+	script := strings.Join(commands, " && \\\n")
+	output, err := sshSession.CombinedOutput(
+		fmt.Sprintf(
+			"/bin/bash -c '%s'",
+			strings.ReplaceAll(script, "'", "'\"'\"'"),
+		),
+	)
+
+	if err != nil {
+		return diag.FromErr(errors.New(string(output)))
+	}
+
+	outputString := string(output[:])
+	lines := strings.Split(outputString, "\n")
+
+	// ignore first line as it's the table headers
+	if len(lines) > 1 {
+		for _, line := range lines[1:] {
+			outputName, outputFormat, outputSize := func() (name, format, size string) {
+
+				values := strings.Fields(line)
+				if len(values) >= 4 {
+					format = values[1]
+					size = values[3]
+
+					storageAndName := strings.Split(values[0], ":")
+					if len(storageAndName) >= 2 {
+						name = storageAndName[1]
+					}
+				}
+
+				return
+			}()
+
+			if outputName == diskName {
+				outputSizeInt, err := strconv.Atoi(outputSize)
+				if err != nil {
+					return diag.FromErr(err)
+				}
+
+				sizeGB := outputSizeInt / 1024 / 1024 / 1024
+
+				d.Set(mkResourceVirtualEnvironmentPersistentDiskSize, sizeGB)
+				d.Set(mkResourceVirtualEnvironmentPersistentDiskFormat, outputFormat)
+
+				return nil
+			}
+		}
+	}
+
+	d.SetId("")
+
 	return nil
 }
 
