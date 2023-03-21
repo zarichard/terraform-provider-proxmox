@@ -58,6 +58,7 @@ const (
 	dvResourceVirtualEnvironmentVMDiskSpeedReadBurstable            = 0
 	dvResourceVirtualEnvironmentVMDiskSpeedWrite                    = 0
 	dvResourceVirtualEnvironmentVMDiskSpeedWriteBurstable           = 0
+	dvResourceVirtualEnvironmentVMExistingDiskInterface             = "scsi0"
 	dvResourceVirtualEnvironmentVMHostPCIDevice                     = ""
 	dvResourceVirtualEnvironmentVMHostPCIDeviceID                   = ""
 	dvResourceVirtualEnvironmentVMHostPCIDeviceMDev                 = ""
@@ -157,6 +158,9 @@ const (
 	mkResourceVirtualEnvironmentVMDiskSpeedReadBurstable            = "read_burstable"
 	mkResourceVirtualEnvironmentVMDiskSpeedWrite                    = "write"
 	mkResourceVirtualEnvironmentVMDiskSpeedWriteBurstable           = "write_burstable"
+	mkResourceVirtualEnvironmentVMExistingDisk                      = "existing_disk"
+	mkResourceVirtualEnvironmentVMExistingDiskInterface             = "interface"
+	mkResourceVirtualEnvironmentVMExistingDiskPath                  = "path"
 	mkResourceVirtualEnvironmentVMHostPCI                           = "hostpci"
 	mkResourceVirtualEnvironmentVMHostPCIDevice                     = "device"
 	mkResourceVirtualEnvironmentVMHostPCIDeviceID                   = "id"
@@ -624,6 +628,35 @@ func resourceVirtualEnvironmentVM() *schema.Resource {
 							},
 							MaxItems: 1,
 							MinItems: 0,
+						},
+					},
+				},
+				MaxItems: 14,
+				MinItems: 0,
+			},
+			mkResourceVirtualEnvironmentVMExistingDisk: {
+				Type:        schema.TypeList,
+				Description: "Existing disks to attach",
+				Optional:    true,
+				ForceNew:    true,
+				DefaultFunc: func() (interface{}, error) {
+					return []interface{}{
+						map[string]interface{}{
+							mkResourceVirtualEnvironmentVMExistingDiskInterface: dvResourceVirtualEnvironmentVMExistingDiskInterface,
+						},
+					}, nil
+				},
+				Elem: &schema.Resource{
+					Schema: map[string]*schema.Schema{
+						mkResourceVirtualEnvironmentVMExistingDiskInterface: {
+							Type:        schema.TypeString,
+							Description: "Disk interface name",
+							Required:    true,
+						},
+						mkResourceVirtualEnvironmentVMExistingDiskPath: {
+							Type:        schema.TypeString,
+							Description: "Path of disk. Either /dev/disk/by-id/diskid (physical) or storage:vm-0000-diskname (virtual)",
+							Required:    true,
 						},
 					},
 				},
@@ -2181,6 +2214,23 @@ func resourceVirtualEnvironmentVMCreateCustomDisks(
 		importedDiskCount++
 	}
 
+	existingDisk := d.Get(mkResourceVirtualEnvironmentVMExistingDisk).([]interface{})
+	for _, d := range existingDisk {
+		block := d.(map[string]interface{})
+
+		diskInterface, _ := block[mkResourceVirtualEnvironmentVMExistingDiskInterface].(string)
+		diskPath, _ := block[mkResourceVirtualEnvironmentVMExistingDiskPath].(string)
+
+		commands = append(
+			commands,
+			`set -e`,
+			fmt.Sprintf(`vm_id="%d"`, vmID),
+			fmt.Sprintf(`disk_interface="%s"`, diskInterface),
+			fmt.Sprintf(`disk_path="%s"`, diskPath),
+			`qm set "$vm_id" "-${disk_interface}" "${disk_path}"`,
+		)
+	}
+
 	// Execute the commands on the node and wait for the result.
 	// This is a highly experimental approach to disk imports and is not recommended by Proxmox.
 	if len(commands) > 0 {
@@ -2993,6 +3043,8 @@ func resourceVirtualEnvironmentVMReadCustom(
 		diags = append(diags, diag.FromErr(err)...)
 	}
 
+	var existingDisksList []interface{}
+
 	currentDiskList := d.Get(mkResourceVirtualEnvironmentVMDisk).([]interface{})
 	diskMap := map[string]interface{}{}
 	diskObjects := getDiskInfo(vmConfig, d)
@@ -3006,6 +3058,15 @@ func resourceVirtualEnvironmentVMReadCustom(
 		}
 
 		fileIDParts := strings.Split(dd.FileVolume, ":")
+		compareString := fmt.Sprintf(`vm-%d`, vmID)
+
+		if len(fileIDParts) <= 1 || !strings.HasPrefix(fileIDParts[1], compareString) {
+			disk[mkResourceVirtualEnvironmentVMExistingDiskPath] = dd.FileVolume
+			disk[mkResourceVirtualEnvironmentVMExistingDiskInterface] = di
+			existingDisksList = append(existingDisksList, disk)
+
+			continue
+		}
 
 		disk[mkResourceVirtualEnvironmentVMDiskDatastoreID] = fileIDParts[0]
 
@@ -3106,6 +3167,11 @@ func resourceVirtualEnvironmentVMReadCustom(
 		}
 	} else if len(currentDiskList) > 0 {
 		err := d.Set(mkResourceVirtualEnvironmentVMDisk, orderedDiskList)
+		diags = append(diags, diag.FromErr(err)...)
+	}
+
+	if len(existingDisksList) > 0 {
+		err := d.Set(mkResourceVirtualEnvironmentVMExistingDisk, existingDisksList)
 		diags = append(diags, diag.FromErr(err)...)
 	}
 
