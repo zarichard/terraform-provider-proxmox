@@ -1,5 +1,37 @@
 # Changelog
 
+## [0.14.1](https://github.com/bpg/terraform-provider-proxmox/compare/v0.14.0...v0.14.1) (2023-03-19)
+
+
+### Bug Fixes
+
+* authentication error logging in API client ([#267](https://github.com/bpg/terraform-provider-proxmox/issues/267)) ([763527e](https://github.com/bpg/terraform-provider-proxmox/commit/763527e53584e8121b1138830ad97e8e89780322))
+* **build:** Fix make example-init for TF 1.4 ([#262](https://github.com/bpg/terraform-provider-proxmox/issues/262)) ([914631f](https://github.com/bpg/terraform-provider-proxmox/commit/914631f58b40ceb25248727ac23a6400df0264a3))
+
+
+### Miscellaneous
+
+* **deps:** bump activesupport from 6.1.7.1 to 6.1.7.3 in /docs ([#263](https://github.com/bpg/terraform-provider-proxmox/issues/263)) ([ce8bd30](https://github.com/bpg/terraform-provider-proxmox/commit/ce8bd3008bc65745eb62e17dc4849d3a4b3f740a))
+* **docs:** Minor documentation Improvements ([#266](https://github.com/bpg/terraform-provider-proxmox/issues/266)) ([696ecb0](https://github.com/bpg/terraform-provider-proxmox/commit/696ecb05d8796540dc21d62dce930c4a2c2d8246))
+
+## [0.14.0](https://github.com/bpg/terraform-provider-proxmox/compare/v0.13.1...v0.14.0) (2023-03-14)
+
+
+### Features
+
+* **lxc:** Add option for nested container feature ([4d44739](https://github.com/bpg/terraform-provider-proxmox/commit/4d447390e684a90c9672528f4bdc22aa1433296b))
+* **vm:** Add custom CPU models support ([82016fc](https://github.com/bpg/terraform-provider-proxmox/commit/82016fc8ff018867783839c916dce686cb38d1b6))
+
+
+### Bug Fixes
+
+* **vm:** Fix `file_format` setting for new empty disks ([#259](https://github.com/bpg/terraform-provider-proxmox/issues/259)) ([d29fd97](https://github.com/bpg/terraform-provider-proxmox/commit/d29fd97babab9a8f217b6ea0ffd89511c55624eb))
+
+
+### Miscellaneous
+
+* **deps:** bump github.com/goreleaser/goreleaser from 1.15.2 to 1.16.1 in /tools ([#258](https://github.com/bpg/terraform-provider-proxmox/issues/258)) ([9afca3b](https://github.com/bpg/terraform-provider-proxmox/commit/9afca3b88caade184e536450534666431f2c00d5))
+
 ## [0.13.1](https://github.com/bpg/terraform-provider-proxmox/compare/v0.13.0...v0.13.1) (2023-03-07)
 
 

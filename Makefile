@@ -14,15 +14,19 @@ else
 	TERRAFORM_PLUGIN_CACHE_DIRECTORY=$(shell pwd -P)/cache/plugins
 endif
 
-TERRAFORM_PLUGIN_DIRECTORY=$(TERRAFORM_PLUGIN_CACHE_DIRECTORY)/registry.terraform.io/zarichard/proxmox/$(VERSION)/$(TERRAFORM_PLATFORM)
-TERRAFORM_PLUGIN_DIRECTORY_EXAMPLE=$(TERRAFORM_PLUGIN_CACHE_DIRECTORY)/registry.terraform.io/zarichard/proxmox/$(VERSION_EXAMPLE)/$(TERRAFORM_PLATFORM)
-TERRAFORM_PLUGIN_EXECUTABLE=$(TERRAFORM_PLUGIN_DIRECTORY)/$(NAME)_v$(VERSION)_x4$(TERRAFORM_PLUGIN_EXTENSION)
-TERRAFORM_PLUGIN_EXECUTABLE_EXAMPLE=$(TERRAFORM_PLUGIN_DIRECTORY_EXAMPLE)/$(NAME)_v$(VERSION_EXAMPLE)_x4$(TERRAFORM_PLUGIN_EXTENSION)
+TERRAFORM_PLUGIN_OUTPUT_DIRECTORY=./build
+TERRAFORM_PLUGIN_EXECUTABLE=$(TERRAFORM_PLUGIN_OUTPUT_DIRECTORY)/$(NAME)_v$(VERSION)$(TERRAFORM_PLUGIN_EXTENSION)
+TERRAFORM_PLUGIN_EXECUTABLE_EXAMPLE=$(TERRAFORM_PLUGIN_OUTPUT_DIRECTORY)/$(NAME)$(TERRAFORM_PLUGIN_EXTENSION)
 
 default: build
 
+clean:
+	rm -rf ./dist
+	rm -rf ./cache
+	rm -rf ./build
+
 build:
-	mkdir -p "$(TERRAFORM_PLUGIN_DIRECTORY)"
+	mkdir -p "$(TERRAFORM_PLUGIN_OUTPUT_DIRECTORY)"
 	rm -f "$(TERRAFORM_PLUGIN_EXECUTABLE)"
 	go build -o "$(TERRAFORM_PLUGIN_EXECUTABLE)"
 
@@ -36,8 +40,8 @@ example-apply:
 		&& terraform apply -auto-approve
 
 example-build:
-	rm -rf "$(TERRAFORM_PLUGIN_DIRECTORY_EXAMPLE)"
-	mkdir -p "$(TERRAFORM_PLUGIN_DIRECTORY_EXAMPLE)"
+	mkdir -p "$(TERRAFORM_PLUGIN_OUTPUT_DIRECTORY)"
+	rm -rf "$(TERRAFORM_PLUGIN_EXECUTABLE_EXAMPLE)"
 	go build -o "$(TERRAFORM_PLUGIN_EXECUTABLE_EXAMPLE)"
 
 example-destroy:
@@ -75,10 +79,10 @@ test:
 
 $(TARGETS):
 	GOOS=$@ GOARCH=amd64 CGO_ENABLED=0 go build \
-		-o "dist/$@/$(NAME)_v$(VERSION)-custom_x4" \
+		-o "dist/$@/$(NAME)_v$(VERSION)-custom" \
 		-a -ldflags '-extldflags "-static"'
 	zip \
 		-j "dist/$(NAME)_v$(VERSION)-custom_$@_amd64.zip" \
-		"dist/$@/$(NAME)_v$(VERSION)-custom_x4"
+		"dist/$@/$(NAME)_v$(VERSION)-custom"
 
-.PHONY: build example example-apply example-destroy example-init example-plan fmt init targets test $(TARGETS)
+.PHONY: clean build example example-apply example-destroy example-init example-plan fmt init targets test $(TARGETS)

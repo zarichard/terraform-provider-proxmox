@@ -2492,6 +2492,7 @@ func resourceVirtualEnvironmentVMGetDiskDeviceObjects(
 
 		block := diskEntry.(map[string]interface{})
 		datastoreID, _ := block[mkResourceVirtualEnvironmentVMDiskDatastoreID].(string)
+		fileFormat, _ := block[mkResourceVirtualEnvironmentVMDiskFileFormat].(string)
 		fileID, _ := block[mkResourceVirtualEnvironmentVMDiskFileID].(string)
 		size, _ := block[mkResourceVirtualEnvironmentVMDiskSize].(int)
 		diskInterface, _ := block[mkResourceVirtualEnvironmentVMDiskInterface].(string)
@@ -2518,6 +2519,7 @@ func resourceVirtualEnvironmentVMGetDiskDeviceObjects(
 
 		diskDevice.ID = &datastoreID
 		diskDevice.Interface = &diskInterface
+		diskDevice.Format = &fileFormat
 		diskDevice.FileID = &fileID
 		sizeString := fmt.Sprintf("%dG", size)
 		diskDevice.Size = &sizeString
