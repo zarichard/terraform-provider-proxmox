@@ -15,7 +15,7 @@ import (
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	"golang.org/x/exp/slices"
 
-	"github.com/bpg/terraform-provider-proxmox/proxmox"
+	"github.com/zarichard/terraform-provider-proxmox/proxmox"
 )
 
 const (
