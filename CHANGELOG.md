@@ -1,301 +1,336 @@
 # Changelog
 
-## [0.15.0](https://github.com/bpg/terraform-provider-proxmox/compare/v0.14.1...v0.15.0) (2023-03-25)
-
-
-### Features
-
-* **vm:** Add bare minimum VM datasource ([#268](https://github.com/bpg/terraform-provider-proxmox/issues/268)) ([c2d3f46](https://github.com/bpg/terraform-provider-proxmox/commit/c2d3f46474fc0d0603c34596eb81b82c06713b17))
+## [0.17.0-rc2](https://github.com/zarichard/terraform-provider-proxmox/compare/v0.17.0-rc1...v0.17.0-rc2) (2023-04-04)
 
 
 ### Bug Fixes
 
-* **vm:** Prevent `file_format` override with default `qcow2` in TF state ([#275](https://github.com/bpg/terraform-provider-proxmox/issues/275)) ([17dca98](https://github.com/bpg/terraform-provider-proxmox/commit/17dca987eb240454dbd980ed8f0c4a939e327ff0))
+* **firewall:** fw controls bugfixes ([#287](https://github.com/zarichard/terraform-provider-proxmox/issues/287)) ([1bfc29e](https://github.com/zarichard/terraform-provider-proxmox/commit/1bfc29e2cc3342699f491d0225da474078220ecd))
 
 
 ### Miscellaneous
 
-* **deps:** bump actions/setup-go from 3 to 4 ([#269](https://github.com/bpg/terraform-provider-proxmox/issues/269)) ([fdb9dc7](https://github.com/bpg/terraform-provider-proxmox/commit/fdb9dc7714f12a1682f47e57ab319753fc18e4f4))
-* **deps:** bump github.com/golangci/golangci-lint from 1.51.2 to 1.52.1 in /tools ([#274](https://github.com/bpg/terraform-provider-proxmox/issues/274)) ([1150163](https://github.com/bpg/terraform-provider-proxmox/commit/1150163b4b66249b79e446cf20f9df54fc204f7c))
-* **deps:** bump github.com/goreleaser/goreleaser from 1.16.1 to 1.16.2 in /tools ([#271](https://github.com/bpg/terraform-provider-proxmox/issues/271)) ([7a0e1db](https://github.com/bpg/terraform-provider-proxmox/commit/7a0e1db6c4a117e0599b4899df781eb3c3fe600f))
+* **deps:** bump activesupport from 7.0.4.2 to 7.0.4.3 in /docs ([#285](https://github.com/zarichard/terraform-provider-proxmox/issues/285)) ([fc08e19](https://github.com/zarichard/terraform-provider-proxmox/commit/fc08e19f867ef652ae7597e89fd49fb3ecc3a9a8))
 
-## [0.14.1](https://github.com/bpg/terraform-provider-proxmox/compare/v0.14.0...v0.14.1) (2023-03-19)
+## [0.17.0-rc1](https://github.com/zarichard/terraform-provider-proxmox/compare/v0.16.0...v0.17.0-rc1) (2023-04-02)
 
 
-### Bug Fixes
+### Features
 
-* authentication error logging in API client ([#267](https://github.com/bpg/terraform-provider-proxmox/issues/267)) ([763527e](https://github.com/bpg/terraform-provider-proxmox/commit/763527e53584e8121b1138830ad97e8e89780322))
-* **build:** Fix make example-init for TF 1.4 ([#262](https://github.com/bpg/terraform-provider-proxmox/issues/262)) ([914631f](https://github.com/bpg/terraform-provider-proxmox/commit/914631f58b40ceb25248727ac23a6400df0264a3))
+* Add firewall resources ([#246](https://github.com/zarichard/terraform-provider-proxmox/issues/246)) ([98e1cff](https://github.com/zarichard/terraform-provider-proxmox/commit/98e1cff7fef0f24d932933bcba56ebc5b6ca7548))
+
+## [0.16.0](https://github.com/zarichard/terraform-provider-proxmox/compare/v0.15.0...v0.16.0) (2023-04-02)
+
+
+### Features
+
+* Update to Go 1.19 ([#280](https://github.com/zarichard/terraform-provider-proxmox/issues/280)) ([8edfe9c](https://github.com/zarichard/terraform-provider-proxmox/commit/8edfe9c7c54c9554adca52ffcf31c091f1fce11f))
+* **vm:** Add scsi_hardware field ([#282](https://github.com/zarichard/terraform-provider-proxmox/issues/282)) ([f0f31ee](https://github.com/zarichard/terraform-provider-proxmox/commit/f0f31eee470dc954fdd5d1c952ea3067a2a68f1b))
 
 
 ### Miscellaneous
 
-* **deps:** bump activesupport from 6.1.7.1 to 6.1.7.3 in /docs ([#263](https://github.com/bpg/terraform-provider-proxmox/issues/263)) ([ce8bd30](https://github.com/bpg/terraform-provider-proxmox/commit/ce8bd3008bc65745eb62e17dc4849d3a4b3f740a))
-* **docs:** Minor documentation Improvements ([#266](https://github.com/bpg/terraform-provider-proxmox/issues/266)) ([696ecb0](https://github.com/bpg/terraform-provider-proxmox/commit/696ecb05d8796540dc21d62dce930c4a2c2d8246))
+* add missing docs ([#283](https://github.com/zarichard/terraform-provider-proxmox/issues/283)) ([db7afe2](https://github.com/zarichard/terraform-provider-proxmox/commit/db7afe2e4a93ae3f97c0533dba0adaf82123c49f))
+* **deps:** bump actions/stale from 7 to 8 ([#276](https://github.com/zarichard/terraform-provider-proxmox/issues/276)) ([edd9685](https://github.com/zarichard/terraform-provider-proxmox/commit/edd96857e64f73b041ed76a9c1818a864b4a0cca))
+* **deps:** bump github.com/golangci/golangci-lint from 1.52.1 to 1.52.2 in /tools ([#278](https://github.com/zarichard/terraform-provider-proxmox/issues/278)) ([d8c1fb3](https://github.com/zarichard/terraform-provider-proxmox/commit/d8c1fb3573de553bc2eb26d8e37cdcfe8a78f384))
+* **deps:** bump github.com/hashicorp/terraform-plugin-sdk/v2 from 2.25.0 to 2.26.1 ([#277](https://github.com/zarichard/terraform-provider-proxmox/issues/277)) ([b403a49](https://github.com/zarichard/terraform-provider-proxmox/commit/b403a4940fd31eacef90deaa11f2696fa7c03910))
 
-## [0.14.0](https://github.com/bpg/terraform-provider-proxmox/compare/v0.13.1...v0.14.0) (2023-03-14)
+## [0.15.0](https://github.com/zarichard/terraform-provider-proxmox/compare/v0.14.1...v0.15.0) (2023-03-25)
 
 
 ### Features
 
-* **lxc:** Add option for nested container feature ([4d44739](https://github.com/bpg/terraform-provider-proxmox/commit/4d447390e684a90c9672528f4bdc22aa1433296b))
-* **vm:** Add custom CPU models support ([82016fc](https://github.com/bpg/terraform-provider-proxmox/commit/82016fc8ff018867783839c916dce686cb38d1b6))
+* **vm:** Add bare minimum VM datasource ([#268](https://github.com/zarichard/terraform-provider-proxmox/issues/268)) ([c2d3f46](https://github.com/zarichard/terraform-provider-proxmox/commit/c2d3f46474fc0d0603c34596eb81b82c06713b17))
 
 
 ### Bug Fixes
 
-* **vm:** Fix `file_format` setting for new empty disks ([#259](https://github.com/bpg/terraform-provider-proxmox/issues/259)) ([d29fd97](https://github.com/bpg/terraform-provider-proxmox/commit/d29fd97babab9a8f217b6ea0ffd89511c55624eb))
+* **vm:** Prevent `file_format` override with default `qcow2` in TF state ([#275](https://github.com/zarichard/terraform-provider-proxmox/issues/275)) ([17dca98](https://github.com/zarichard/terraform-provider-proxmox/commit/17dca987eb240454dbd980ed8f0c4a939e327ff0))
 
 
 ### Miscellaneous
 
-* **deps:** bump github.com/goreleaser/goreleaser from 1.15.2 to 1.16.1 in /tools ([#258](https://github.com/bpg/terraform-provider-proxmox/issues/258)) ([9afca3b](https://github.com/bpg/terraform-provider-proxmox/commit/9afca3b88caade184e536450534666431f2c00d5))
+* **deps:** bump actions/setup-go from 3 to 4 ([#269](https://github.com/zarichard/terraform-provider-proxmox/issues/269)) ([fdb9dc7](https://github.com/zarichard/terraform-provider-proxmox/commit/fdb9dc7714f12a1682f47e57ab319753fc18e4f4))
+* **deps:** bump github.com/golangci/golangci-lint from 1.51.2 to 1.52.1 in /tools ([#274](https://github.com/zarichard/terraform-provider-proxmox/issues/274)) ([1150163](https://github.com/zarichard/terraform-provider-proxmox/commit/1150163b4b66249b79e446cf20f9df54fc204f7c))
+* **deps:** bump github.com/goreleaser/goreleaser from 1.16.1 to 1.16.2 in /tools ([#271](https://github.com/zarichard/terraform-provider-proxmox/issues/271)) ([7a0e1db](https://github.com/zarichard/terraform-provider-proxmox/commit/7a0e1db6c4a117e0599b4899df781eb3c3fe600f))
 
-## [0.13.1](https://github.com/bpg/terraform-provider-proxmox/compare/v0.13.0...v0.13.1) (2023-03-07)
+## [0.14.1](https://github.com/zarichard/terraform-provider-proxmox/compare/v0.14.0...v0.14.1) (2023-03-19)
+
+
+### Bug Fixes
+
+* authentication error logging in API client ([#267](https://github.com/zarichard/terraform-provider-proxmox/issues/267)) ([763527e](https://github.com/zarichard/terraform-provider-proxmox/commit/763527e53584e8121b1138830ad97e8e89780322))
+* **build:** Fix make example-init for TF 1.4 ([#262](https://github.com/zarichard/terraform-provider-proxmox/issues/262)) ([914631f](https://github.com/zarichard/terraform-provider-proxmox/commit/914631f58b40ceb25248727ac23a6400df0264a3))
 
 
 ### Miscellaneous
 
-* **deps:** bump dependencies ([#242](https://github.com/bpg/terraform-provider-proxmox/issues/242)) ([890fb53](https://github.com/bpg/terraform-provider-proxmox/commit/890fb536846d2582cbf025f2045be3c5f903fc0a))
-* **deps:** bump github.com/golangci/golangci-lint from 1.51.1 to 1.51.2 in /tools ([#244](https://github.com/bpg/terraform-provider-proxmox/issues/244)) ([e01844a](https://github.com/bpg/terraform-provider-proxmox/commit/e01844a0d73750d0ce65c76e9eaae0b3b952c206))
-* **deps:** bump github.com/stretchr/testify from 1.8.1 to 1.8.2 ([#245](https://github.com/bpg/terraform-provider-proxmox/issues/245)) ([6cca133](https://github.com/bpg/terraform-provider-proxmox/commit/6cca13383527a1f33a30e5766bb520c0a575793a))
-* **deps:** bump golang.org/x/crypto from 0.6.0 to 0.7.0 ([#248](https://github.com/bpg/terraform-provider-proxmox/issues/248)) ([1aa668e](https://github.com/bpg/terraform-provider-proxmox/commit/1aa668e03bcb15333772575029a07c2134d8e291))
+* **deps:** bump activesupport from 6.1.7.1 to 6.1.7.3 in /docs ([#263](https://github.com/zarichard/terraform-provider-proxmox/issues/263)) ([ce8bd30](https://github.com/zarichard/terraform-provider-proxmox/commit/ce8bd3008bc65745eb62e17dc4849d3a4b3f740a))
+* **docs:** Minor documentation Improvements ([#266](https://github.com/zarichard/terraform-provider-proxmox/issues/266)) ([696ecb0](https://github.com/zarichard/terraform-provider-proxmox/commit/696ecb05d8796540dc21d62dce930c4a2c2d8246))
 
-## [0.13.0](https://github.com/bpg/terraform-provider-proxmox/compare/v0.12.1...v0.13.0) (2023-02-17)
+## [0.14.0](https://github.com/zarichard/terraform-provider-proxmox/compare/v0.13.1...v0.14.0) (2023-03-14)
 
 
 ### Features
 
-* **vm:** update VM disc import logic ([#241](https://github.com/bpg/terraform-provider-proxmox/issues/241)) ([fcf9810](https://github.com/bpg/terraform-provider-proxmox/commit/fcf98102522821c9dfb4534731747233bd627d38))
+* **lxc:** Add option for nested container feature ([4d44739](https://github.com/zarichard/terraform-provider-proxmox/commit/4d447390e684a90c9672528f4bdc22aa1433296b))
+* **vm:** Add custom CPU models support ([82016fc](https://github.com/zarichard/terraform-provider-proxmox/commit/82016fc8ff018867783839c916dce686cb38d1b6))
 
 
 ### Bug Fixes
 
-* **vm:** `proxmox_virtual_environment_file.changed` stored as `true` at file creation ([#240](https://github.com/bpg/terraform-provider-proxmox/issues/240)) ([197c9e5](https://github.com/bpg/terraform-provider-proxmox/commit/197c9e5152fd6524c82977001a759c36c644f8e5))
+* **vm:** Fix `file_format` setting for new empty disks ([#259](https://github.com/zarichard/terraform-provider-proxmox/issues/259)) ([d29fd97](https://github.com/zarichard/terraform-provider-proxmox/commit/d29fd97babab9a8f217b6ea0ffd89511c55624eb))
 
 
 ### Miscellaneous
 
-* **deps:** bump activesupport from 6.0.6.1 to 6.1.7.1 in /docs ([#235](https://github.com/bpg/terraform-provider-proxmox/issues/235)) ([ffa39c1](https://github.com/bpg/terraform-provider-proxmox/commit/ffa39c13e0d8283da51980532c83919edcf1cbc6))
-* **deps:** bump github.com/goreleaser/goreleaser from 1.15.1 to 1.15.2 in /tools ([#237](https://github.com/bpg/terraform-provider-proxmox/issues/237)) ([80dfceb](https://github.com/bpg/terraform-provider-proxmox/commit/80dfceba8433379a64a1ff86d174447e229325ab))
-* **deps:** bump github.com/hashicorp/terraform-plugin-log from 0.7.0 to 0.8.0 ([#239](https://github.com/bpg/terraform-provider-proxmox/issues/239)) ([dbe26ed](https://github.com/bpg/terraform-provider-proxmox/commit/dbe26ed58f1ed668e5a059f9659bd12fd6b1a54c))
-* **deps:** bump golang.org/x/crypto from 0.5.0 to 0.6.0 ([#238](https://github.com/bpg/terraform-provider-proxmox/issues/238)) ([2b99349](https://github.com/bpg/terraform-provider-proxmox/commit/2b99349f1fe89e804fb45c439470bd2474068f1c))
+* **deps:** bump github.com/goreleaser/goreleaser from 1.15.2 to 1.16.1 in /tools ([#258](https://github.com/zarichard/terraform-provider-proxmox/issues/258)) ([9afca3b](https://github.com/zarichard/terraform-provider-proxmox/commit/9afca3b88caade184e536450534666431f2c00d5))
 
-## [0.12.1](https://github.com/bpg/terraform-provider-proxmox/compare/v0.12.0...v0.12.1) (2023-02-07)
-
-
-### Bug Fixes
-
-* **build:** trailing space in provider's version ([#233](https://github.com/bpg/terraform-provider-proxmox/issues/233)) ([f97407d](https://github.com/bpg/terraform-provider-proxmox/commit/f97407dc00c425b8d015abf72488b5a4fd31f043))
-* **vm:** ignore ssd disk flag with virtio interface ([#231](https://github.com/bpg/terraform-provider-proxmox/issues/231)) ([1de9294](https://github.com/bpg/terraform-provider-proxmox/commit/1de92947666d45fdcae881e3a6bd651bfea493a4))
+## [0.13.1](https://github.com/zarichard/terraform-provider-proxmox/compare/v0.13.0...v0.13.1) (2023-03-07)
 
 
 ### Miscellaneous
 
-* **deps:** bump github.com/golangci/golangci-lint from 1.50.1 to 1.51.1 in /tools ([#229](https://github.com/bpg/terraform-provider-proxmox/issues/229)) ([f1022a5](https://github.com/bpg/terraform-provider-proxmox/commit/f1022a5cae0c99696292421edb28b3007d3bbb51))
-* **deps:** bump github.com/goreleaser/goreleaser from 1.14.1 to 1.15.1 in /tools ([#230](https://github.com/bpg/terraform-provider-proxmox/issues/230)) ([722003e](https://github.com/bpg/terraform-provider-proxmox/commit/722003ee5ac23c4946af2257eaeb6f91028f879d))
+* **deps:** bump dependencies ([#242](https://github.com/zarichard/terraform-provider-proxmox/issues/242)) ([890fb53](https://github.com/zarichard/terraform-provider-proxmox/commit/890fb536846d2582cbf025f2045be3c5f903fc0a))
+* **deps:** bump github.com/golangci/golangci-lint from 1.51.1 to 1.51.2 in /tools ([#244](https://github.com/zarichard/terraform-provider-proxmox/issues/244)) ([e01844a](https://github.com/zarichard/terraform-provider-proxmox/commit/e01844a0d73750d0ce65c76e9eaae0b3b952c206))
+* **deps:** bump github.com/stretchr/testify from 1.8.1 to 1.8.2 ([#245](https://github.com/zarichard/terraform-provider-proxmox/issues/245)) ([6cca133](https://github.com/zarichard/terraform-provider-proxmox/commit/6cca13383527a1f33a30e5766bb520c0a575793a))
+* **deps:** bump golang.org/x/crypto from 0.6.0 to 0.7.0 ([#248](https://github.com/zarichard/terraform-provider-proxmox/issues/248)) ([1aa668e](https://github.com/zarichard/terraform-provider-proxmox/commit/1aa668e03bcb15333772575029a07c2134d8e291))
 
-## [0.12.0](https://github.com/bpg/terraform-provider-proxmox/compare/v0.11.0...v0.12.0) (2023-02-06)
+## [0.13.0](https://github.com/zarichard/terraform-provider-proxmox/compare/v0.12.1...v0.13.0) (2023-02-17)
 
 
 ### Features
 
-* **core:** Add known hosts callback check for ssh connections ([#217](https://github.com/bpg/terraform-provider-proxmox/issues/217)) ([598c628](https://github.com/bpg/terraform-provider-proxmox/commit/598c62864d0a8a4e1b7dcda0cb7a3d5e380a5863))
-* **lxc:** Add unprivileged option ([#225](https://github.com/bpg/terraform-provider-proxmox/issues/225)) ([1918561](https://github.com/bpg/terraform-provider-proxmox/commit/19185611b37c85a071ac4d3fd0c9a6b865b7c28d))
+* **vm:** update VM disc import logic ([#241](https://github.com/zarichard/terraform-provider-proxmox/issues/241)) ([fcf9810](https://github.com/zarichard/terraform-provider-proxmox/commit/fcf98102522821c9dfb4534731747233bd627d38))
 
 
 ### Bug Fixes
 
-* **vm:** Don't add an extra hostpci entry ([#223](https://github.com/bpg/terraform-provider-proxmox/issues/223)) ([346c92b](https://github.com/bpg/terraform-provider-proxmox/commit/346c92b2734caed90b30df423ac8019cf08c5900))
-* **vm:** Fix handling of empty kvm arguments ([#228](https://github.com/bpg/terraform-provider-proxmox/issues/228)) ([e2802d0](https://github.com/bpg/terraform-provider-proxmox/commit/e2802d0654f0d6d5e99bef4987a84862e3ffbde7))
+* **vm:** `proxmox_virtual_environment_file.changed` stored as `true` at file creation ([#240](https://github.com/zarichard/terraform-provider-proxmox/issues/240)) ([197c9e5](https://github.com/zarichard/terraform-provider-proxmox/commit/197c9e5152fd6524c82977001a759c36c644f8e5))
 
 
 ### Miscellaneous
 
-* **deps:** bump commonmarker from 0.23.6 to 0.23.7 in /docs ([#220](https://github.com/bpg/terraform-provider-proxmox/issues/220)) ([cef0227](https://github.com/bpg/terraform-provider-proxmox/commit/cef0227ef59df55388632e775b34cc3f4644075f))
-* **deps:** bump gem dependencies in /docs ([#221](https://github.com/bpg/terraform-provider-proxmox/issues/221)) ([e0864c0](https://github.com/bpg/terraform-provider-proxmox/commit/e0864c098a2e5a9d1da1c133ebaeee8650ceb4e0))
-* **deps:** bump goreleaser/goreleaser-action from 4.1.0 to 4.2.0 ([#222](https://github.com/bpg/terraform-provider-proxmox/issues/222)) ([11fe9e5](https://github.com/bpg/terraform-provider-proxmox/commit/11fe9e539c56101360e5be0f5bb042f5318a4d4c))
-* disable code coverage ([#227](https://github.com/bpg/terraform-provider-proxmox/issues/227)) ([a72fd27](https://github.com/bpg/terraform-provider-proxmox/commit/a72fd27a13395b9d061cdc450f68e171f1b30cbe))
+* **deps:** bump activesupport from 6.0.6.1 to 6.1.7.1 in /docs ([#235](https://github.com/zarichard/terraform-provider-proxmox/issues/235)) ([ffa39c1](https://github.com/zarichard/terraform-provider-proxmox/commit/ffa39c13e0d8283da51980532c83919edcf1cbc6))
+* **deps:** bump github.com/goreleaser/goreleaser from 1.15.1 to 1.15.2 in /tools ([#237](https://github.com/zarichard/terraform-provider-proxmox/issues/237)) ([80dfceb](https://github.com/zarichard/terraform-provider-proxmox/commit/80dfceba8433379a64a1ff86d174447e229325ab))
+* **deps:** bump github.com/hashicorp/terraform-plugin-log from 0.7.0 to 0.8.0 ([#239](https://github.com/zarichard/terraform-provider-proxmox/issues/239)) ([dbe26ed](https://github.com/zarichard/terraform-provider-proxmox/commit/dbe26ed58f1ed668e5a059f9659bd12fd6b1a54c))
+* **deps:** bump golang.org/x/crypto from 0.5.0 to 0.6.0 ([#238](https://github.com/zarichard/terraform-provider-proxmox/issues/238)) ([2b99349](https://github.com/zarichard/terraform-provider-proxmox/commit/2b99349f1fe89e804fb45c439470bd2474068f1c))
 
-## [0.11.0](https://github.com/bpg/terraform-provider-proxmox/compare/v0.10.0...v0.11.0) (2023-01-24)
+## [0.12.1](https://github.com/zarichard/terraform-provider-proxmox/compare/v0.12.0...v0.12.1) (2023-02-07)
 
 
-### Features
+### Bug Fixes
 
-* **lxc:** Add support for container tags ([#212](https://github.com/bpg/terraform-provider-proxmox/issues/212)) ([5c8ae3c](https://github.com/bpg/terraform-provider-proxmox/commit/5c8ae3c3f826969f70d5af79cfca00c0c49da418))
+* **build:** trailing space in provider's version ([#233](https://github.com/zarichard/terraform-provider-proxmox/issues/233)) ([f97407d](https://github.com/zarichard/terraform-provider-proxmox/commit/f97407dc00c425b8d015abf72488b5a4fd31f043))
+* **vm:** ignore ssd disk flag with virtio interface ([#231](https://github.com/zarichard/terraform-provider-proxmox/issues/231)) ([1de9294](https://github.com/zarichard/terraform-provider-proxmox/commit/1de92947666d45fdcae881e3a6bd651bfea493a4))
 
 
 ### Miscellaneous
 
-* **ci:** set up code coverage ([06bd5ae](https://github.com/bpg/terraform-provider-proxmox/commit/06bd5aef0f0aac54e412e475ccdc85f8f61398d9))
-* **deps:** bump dependencies ([#216](https://github.com/bpg/terraform-provider-proxmox/issues/216)) ([f157e3b](https://github.com/bpg/terraform-provider-proxmox/commit/f157e3bd532bd3b0fa728478f44986b1ef5f245b))
+* **deps:** bump github.com/golangci/golangci-lint from 1.50.1 to 1.51.1 in /tools ([#229](https://github.com/zarichard/terraform-provider-proxmox/issues/229)) ([f1022a5](https://github.com/zarichard/terraform-provider-proxmox/commit/f1022a5cae0c99696292421edb28b3007d3bbb51))
+* **deps:** bump github.com/goreleaser/goreleaser from 1.14.1 to 1.15.1 in /tools ([#230](https://github.com/zarichard/terraform-provider-proxmox/issues/230)) ([722003e](https://github.com/zarichard/terraform-provider-proxmox/commit/722003ee5ac23c4946af2257eaeb6f91028f879d))
 
-## [0.10.0](https://github.com/bpg/terraform-provider-proxmox/compare/v0.9.1...v0.10.0) (2023-01-18)
-
-
-### Features
-
-* **lxc:** Add option to customize RootFS size at LXC creation ([#207](https://github.com/bpg/terraform-provider-proxmox/issues/207)) ([dd9ffe1](https://github.com/bpg/terraform-provider-proxmox/commit/dd9ffe190cd9eaee7ac6a9e2c830eee45b4b69df))
-* **vm:** add support for "args" flag for VM ([#205](https://github.com/bpg/terraform-provider-proxmox/issues/205)) ([8bd3fd7](https://github.com/bpg/terraform-provider-proxmox/commit/8bd3fd7b1d71e37eeee2c222e4896b857a01cabf))
-
-
-### Bug Fixes
-
-* **vm:** Add parser for CustomEFIDisk ([#208](https://github.com/bpg/terraform-provider-proxmox/issues/208)) ([b539aab](https://github.com/bpg/terraform-provider-proxmox/commit/b539aab22851817aea981727eb27a8da73edcc43))
-
-## [0.9.1](https://github.com/bpg/terraform-provider-proxmox/compare/v0.9.0...v0.9.1) (2023-01-02)
-
-
-### Bug Fixes
-
-* **vm:** Make so that on_boot can be changed with update ([#199](https://github.com/bpg/terraform-provider-proxmox/issues/199)) ([496ab32](https://github.com/bpg/terraform-provider-proxmox/commit/496ab322be7f12257f562d53a9920377cded8aa5))
-
-## [0.9.0](https://github.com/bpg/terraform-provider-proxmox/compare/v0.8.0...v0.9.0) (2023-01-01)
+## [0.12.0](https://github.com/zarichard/terraform-provider-proxmox/compare/v0.11.0...v0.12.0) (2023-02-06)
 
 
 ### Features
 
-* **vm:** Add cloud-init network-config support ([#197](https://github.com/bpg/terraform-provider-proxmox/issues/197)) ([79a2101](https://github.com/bpg/terraform-provider-proxmox/commit/79a2101933d6001cb843050a83076a39cd503db8))
-* **vm:** Add hostpci support ([01d2050](https://github.com/bpg/terraform-provider-proxmox/commit/01d20504a1924552611a92dd3f718bad270a7309))
-* **vm:** Deletion of VM should also purge all storages and configs ([13080b4](https://github.com/bpg/terraform-provider-proxmox/commit/13080b44dcb08fbeabd0b20501631f52e022e46d))
-* **vm:** OnBoot: change default to `true` ([#191](https://github.com/bpg/terraform-provider-proxmox/issues/191)) ([60a6818](https://github.com/bpg/terraform-provider-proxmox/commit/60a68184cf7c6239eb5cc540c746f11e2a78c240))
+* **core:** Add known hosts callback check for ssh connections ([#217](https://github.com/zarichard/terraform-provider-proxmox/issues/217)) ([598c628](https://github.com/zarichard/terraform-provider-proxmox/commit/598c62864d0a8a4e1b7dcda0cb7a3d5e380a5863))
+* **lxc:** Add unprivileged option ([#225](https://github.com/zarichard/terraform-provider-proxmox/issues/225)) ([1918561](https://github.com/zarichard/terraform-provider-proxmox/commit/19185611b37c85a071ac4d3fd0c9a6b865b7c28d))
 
-## [0.8.0](https://github.com/bpg/terraform-provider-proxmox/compare/v0.7.0...v0.8.0) (2022-12-13)
+
+### Bug Fixes
+
+* **vm:** Don't add an extra hostpci entry ([#223](https://github.com/zarichard/terraform-provider-proxmox/issues/223)) ([346c92b](https://github.com/zarichard/terraform-provider-proxmox/commit/346c92b2734caed90b30df423ac8019cf08c5900))
+* **vm:** Fix handling of empty kvm arguments ([#228](https://github.com/zarichard/terraform-provider-proxmox/issues/228)) ([e2802d0](https://github.com/zarichard/terraform-provider-proxmox/commit/e2802d0654f0d6d5e99bef4987a84862e3ffbde7))
+
+
+### Miscellaneous
+
+* **deps:** bump commonmarker from 0.23.6 to 0.23.7 in /docs ([#220](https://github.com/zarichard/terraform-provider-proxmox/issues/220)) ([cef0227](https://github.com/zarichard/terraform-provider-proxmox/commit/cef0227ef59df55388632e775b34cc3f4644075f))
+* **deps:** bump gem dependencies in /docs ([#221](https://github.com/zarichard/terraform-provider-proxmox/issues/221)) ([e0864c0](https://github.com/zarichard/terraform-provider-proxmox/commit/e0864c098a2e5a9d1da1c133ebaeee8650ceb4e0))
+* **deps:** bump goreleaser/goreleaser-action from 4.1.0 to 4.2.0 ([#222](https://github.com/zarichard/terraform-provider-proxmox/issues/222)) ([11fe9e5](https://github.com/zarichard/terraform-provider-proxmox/commit/11fe9e539c56101360e5be0f5bb042f5318a4d4c))
+* disable code coverage ([#227](https://github.com/zarichard/terraform-provider-proxmox/issues/227)) ([a72fd27](https://github.com/zarichard/terraform-provider-proxmox/commit/a72fd27a13395b9d061cdc450f68e171f1b30cbe))
+
+## [0.11.0](https://github.com/zarichard/terraform-provider-proxmox/compare/v0.10.0...v0.11.0) (2023-01-24)
 
 
 ### Features
 
-* add support for "ssd" disk flag for VM ([#181](https://github.com/bpg/terraform-provider-proxmox/issues/181)) ([2907346](https://github.com/bpg/terraform-provider-proxmox/commit/290734655ce28306ae910b76b8de5fedbd3b4bb8))
-* add support for network_device MTU ([#176](https://github.com/bpg/terraform-provider-proxmox/issues/176)) ([3c02cb1](https://github.com/bpg/terraform-provider-proxmox/commit/3c02cb13895f7095ef0b0aaf58fe799e396a0715))
-* add support for VM tags ([#169](https://github.com/bpg/terraform-provider-proxmox/issues/169)) ([ade1d49](https://github.com/bpg/terraform-provider-proxmox/commit/ade1d49117f5390e5ee58ddeadef0adf02143d33))
-* add the ability to clone to non-shared storage on different nodes ([#178](https://github.com/bpg/terraform-provider-proxmox/issues/178)) ([0df14f9](https://github.com/bpg/terraform-provider-proxmox/commit/0df14f9d6aa139cb6478317da7ff6b632242b02d))
+* **lxc:** Add support for container tags ([#212](https://github.com/zarichard/terraform-provider-proxmox/issues/212)) ([5c8ae3c](https://github.com/zarichard/terraform-provider-proxmox/commit/5c8ae3c3f826969f70d5af79cfca00c0c49da418))
 
 
-### Bug Fixes
+### Miscellaneous
 
-* Check if any interface has global unicast address instead of all interfaces ([#182](https://github.com/bpg/terraform-provider-proxmox/issues/182)) ([722e010](https://github.com/bpg/terraform-provider-proxmox/commit/722e01053bdb51c038a7bd86d4018465417ea6fb))
-* handling `datastore_id` in LXC template ([#180](https://github.com/bpg/terraform-provider-proxmox/issues/180)) ([63dc5cb](https://github.com/bpg/terraform-provider-proxmox/commit/63dc5cb8f6dbb6d273bd519c7768893df02a3b97))
-* Remove cloned ide2 before creating new one ([#174](https://github.com/bpg/terraform-provider-proxmox/issues/174)) ([#175](https://github.com/bpg/terraform-provider-proxmox/issues/175)) ([2766555](https://github.com/bpg/terraform-provider-proxmox/commit/27665554de4a35ec678f5c63b529ccaa7d99bc74))
+* **ci:** set up code coverage ([06bd5ae](https://github.com/zarichard/terraform-provider-proxmox/commit/06bd5aef0f0aac54e412e475ccdc85f8f61398d9))
+* **deps:** bump dependencies ([#216](https://github.com/zarichard/terraform-provider-proxmox/issues/216)) ([f157e3b](https://github.com/zarichard/terraform-provider-proxmox/commit/f157e3bd532bd3b0fa728478f44986b1ef5f245b))
 
-## [0.7.0](https://github.com/bpg/terraform-provider-proxmox/compare/v0.6.4...v0.7.0) (2022-11-18)
+## [0.10.0](https://github.com/zarichard/terraform-provider-proxmox/compare/v0.9.1...v0.10.0) (2023-01-18)
 
 
 ### Features
 
-* Add support for custom cloud-init vendor data file ([#162](https://github.com/bpg/terraform-provider-proxmox/issues/162)) ([9e34dfb](https://github.com/bpg/terraform-provider-proxmox/commit/9e34dfb36213fc524957921e2d5b07cdf3585491))
+* **lxc:** Add option to customize RootFS size at LXC creation ([#207](https://github.com/zarichard/terraform-provider-proxmox/issues/207)) ([dd9ffe1](https://github.com/zarichard/terraform-provider-proxmox/commit/dd9ffe190cd9eaee7ac6a9e2c830eee45b4b69df))
+* **vm:** add support for "args" flag for VM ([#205](https://github.com/zarichard/terraform-provider-proxmox/issues/205)) ([8bd3fd7](https://github.com/zarichard/terraform-provider-proxmox/commit/8bd3fd7b1d71e37eeee2c222e4896b857a01cabf))
 
 
 ### Bug Fixes
 
-* linter issues ([#158](https://github.com/bpg/terraform-provider-proxmox/issues/158)) ([0fad160](https://github.com/bpg/terraform-provider-proxmox/commit/0fad160ed61cf763ce294a76e35b8c0f56cd33e8))
+* **vm:** Add parser for CustomEFIDisk ([#208](https://github.com/zarichard/terraform-provider-proxmox/issues/208)) ([b539aab](https://github.com/zarichard/terraform-provider-proxmox/commit/b539aab22851817aea981727eb27a8da73edcc43))
 
-## [0.6.4](https://github.com/bpg/terraform-provider-proxmox/compare/v0.6.3...v0.6.4) (2022-10-17)
-
-
-### Bug Fixes
-
-* bump vulnerable dependencies ([#143](https://github.com/bpg/terraform-provider-proxmox/issues/143)) ([f9f357e](https://github.com/bpg/terraform-provider-proxmox/commit/f9f357e200681d56500316d204ed3c2dc836b551))
-
-## [v0.6.3](https://github.com/bpg/terraform-provider-proxmox/compare/v0.6.2...v0.6.3) (2022-10-17)
+## [0.9.1](https://github.com/zarichard/terraform-provider-proxmox/compare/v0.9.0...v0.9.1) (2023-01-02)
 
 
 ### Bug Fixes
 
-* Non-default VM disk format is not preserved in TF state ([#134](https://github.com/bpg/terraform-provider-proxmox/issues/134)) ([b09389f](https://github.com/bpg/terraform-provider-proxmox/commit/b09389f0a9c65f8f6ab82ae989d29951dd643ed2))
+* **vm:** Make so that on_boot can be changed with update ([#199](https://github.com/zarichard/terraform-provider-proxmox/issues/199)) ([496ab32](https://github.com/zarichard/terraform-provider-proxmox/commit/496ab322be7f12257f562d53a9920377cded8aa5))
 
-## [v0.6.2](https://github.com/bpg/terraform-provider-proxmox/tree/v0.6.2) (2022-09-28)
+## [0.9.0](https://github.com/zarichard/terraform-provider-proxmox/compare/v0.8.0...v0.9.0) (2023-01-01)
 
-[Full Changelog](https://github.com/bpg/terraform-provider-proxmox/compare/v0.6.1...v0.6.2)
+
+### Features
+
+* **vm:** Add cloud-init network-config support ([#197](https://github.com/zarichard/terraform-provider-proxmox/issues/197)) ([79a2101](https://github.com/zarichard/terraform-provider-proxmox/commit/79a2101933d6001cb843050a83076a39cd503db8))
+* **vm:** Add hostpci support ([01d2050](https://github.com/zarichard/terraform-provider-proxmox/commit/01d20504a1924552611a92dd3f718bad270a7309))
+* **vm:** Deletion of VM should also purge all storages and configs ([13080b4](https://github.com/zarichard/terraform-provider-proxmox/commit/13080b44dcb08fbeabd0b20501631f52e022e46d))
+* **vm:** OnBoot: change default to `true` ([#191](https://github.com/zarichard/terraform-provider-proxmox/issues/191)) ([60a6818](https://github.com/zarichard/terraform-provider-proxmox/commit/60a68184cf7c6239eb5cc540c746f11e2a78c240))
+
+## [0.8.0](https://github.com/zarichard/terraform-provider-proxmox/compare/v0.7.0...v0.8.0) (2022-12-13)
+
+
+### Features
+
+* add support for "ssd" disk flag for VM ([#181](https://github.com/zarichard/terraform-provider-proxmox/issues/181)) ([2907346](https://github.com/zarichard/terraform-provider-proxmox/commit/290734655ce28306ae910b76b8de5fedbd3b4bb8))
+* add support for network_device MTU ([#176](https://github.com/zarichard/terraform-provider-proxmox/issues/176)) ([3c02cb1](https://github.com/zarichard/terraform-provider-proxmox/commit/3c02cb13895f7095ef0b0aaf58fe799e396a0715))
+* add support for VM tags ([#169](https://github.com/zarichard/terraform-provider-proxmox/issues/169)) ([ade1d49](https://github.com/zarichard/terraform-provider-proxmox/commit/ade1d49117f5390e5ee58ddeadef0adf02143d33))
+* add the ability to clone to non-shared storage on different nodes ([#178](https://github.com/zarichard/terraform-provider-proxmox/issues/178)) ([0df14f9](https://github.com/zarichard/terraform-provider-proxmox/commit/0df14f9d6aa139cb6478317da7ff6b632242b02d))
+
+
+### Bug Fixes
+
+* Check if any interface has global unicast address instead of all interfaces ([#182](https://github.com/zarichard/terraform-provider-proxmox/issues/182)) ([722e010](https://github.com/zarichard/terraform-provider-proxmox/commit/722e01053bdb51c038a7bd86d4018465417ea6fb))
+* handling `datastore_id` in LXC template ([#180](https://github.com/zarichard/terraform-provider-proxmox/issues/180)) ([63dc5cb](https://github.com/zarichard/terraform-provider-proxmox/commit/63dc5cb8f6dbb6d273bd519c7768893df02a3b97))
+* Remove cloned ide2 before creating new one ([#174](https://github.com/zarichard/terraform-provider-proxmox/issues/174)) ([#175](https://github.com/zarichard/terraform-provider-proxmox/issues/175)) ([2766555](https://github.com/zarichard/terraform-provider-proxmox/commit/27665554de4a35ec678f5c63b529ccaa7d99bc74))
+
+## [0.7.0](https://github.com/zarichard/terraform-provider-proxmox/compare/v0.6.4...v0.7.0) (2022-11-18)
+
+
+### Features
+
+* Add support for custom cloud-init vendor data file ([#162](https://github.com/zarichard/terraform-provider-proxmox/issues/162)) ([9e34dfb](https://github.com/zarichard/terraform-provider-proxmox/commit/9e34dfb36213fc524957921e2d5b07cdf3585491))
+
+
+### Bug Fixes
+
+* linter issues ([#158](https://github.com/zarichard/terraform-provider-proxmox/issues/158)) ([0fad160](https://github.com/zarichard/terraform-provider-proxmox/commit/0fad160ed61cf763ce294a76e35b8c0f56cd33e8))
+
+## [0.6.4](https://github.com/zarichard/terraform-provider-proxmox/compare/v0.6.3...v0.6.4) (2022-10-17)
+
+
+### Bug Fixes
+
+* bump vulnerable dependencies ([#143](https://github.com/zarichard/terraform-provider-proxmox/issues/143)) ([f9f357e](https://github.com/zarichard/terraform-provider-proxmox/commit/f9f357e200681d56500316d204ed3c2dc836b551))
+
+## [v0.6.3](https://github.com/zarichard/terraform-provider-proxmox/compare/v0.6.2...v0.6.3) (2022-10-17)
+
+
+### Bug Fixes
+
+* Non-default VM disk format is not preserved in TF state ([#134](https://github.com/zarichard/terraform-provider-proxmox/issues/134)) ([b09389f](https://github.com/zarichard/terraform-provider-proxmox/commit/b09389f0a9c65f8f6ab82ae989d29951dd643ed2))
+
+## [v0.6.2](https://github.com/zarichard/terraform-provider-proxmox/tree/v0.6.2) (2022-09-28)
+
+[Full Changelog](https://github.com/zarichard/terraform-provider-proxmox/compare/v0.6.1...v0.6.2)
 
 ENHANCEMENTS:
 
-- Add discard option to vm disk creation [\#122](https://github.com/bpg/terraform-provider-proxmox/issues/122)
+- Add discard option to vm disk creation [\#122](https://github.com/zarichard/terraform-provider-proxmox/issues/122)
 
 **Merged pull requests:**
 
-- Add support for "discard" disk option for VM [\#128](https://github.com/bpg/terraform-provider-proxmox/pull/128) ([bpg](https://github.com/bpg))
+- Add support for "discard" disk option for VM [\#128](https://github.com/zarichard/terraform-provider-proxmox/pull/128) ([bpg](https://github.com/bpg))
 
-## [v0.6.1](https://github.com/bpg/terraform-provider-proxmox/tree/v0.6.1) (2022-08-15)
+## [v0.6.1](https://github.com/zarichard/terraform-provider-proxmox/tree/v0.6.1) (2022-08-15)
 
-[Full Changelog](https://github.com/bpg/terraform-provider-proxmox/compare/v0.6.0...v0.6.1)
+[Full Changelog](https://github.com/zarichard/terraform-provider-proxmox/compare/v0.6.0...v0.6.1)
 
 BUG FIXES:
 
-- Waiting for proxmox\_virtual\_environment\_vm's ipv4\_addresses does not really work [\#100](https://github.com/bpg/terraform-provider-proxmox/issues/100)
+- Waiting for proxmox\_virtual\_environment\_vm's ipv4\_addresses does not really work [\#100](https://github.com/zarichard/terraform-provider-proxmox/issues/100)
 
-## [v0.6.0](https://github.com/bpg/terraform-provider-proxmox/tree/v0.6.0) (2022-08-09)
+## [v0.6.0](https://github.com/zarichard/terraform-provider-proxmox/tree/v0.6.0) (2022-08-09)
 
-[Full Changelog](https://github.com/bpg/terraform-provider-proxmox/compare/v0.5.3...v0.6.0)
+[Full Changelog](https://github.com/zarichard/terraform-provider-proxmox/compare/v0.5.3...v0.6.0)
 
 BREAKING CHANGES:
 
-- Upgrade the provider codebase to use Terraform SDK v2 [\#91](https://github.com/bpg/terraform-provider-proxmox/pull/91) ([bpg](https://github.com/bpg))
+- Upgrade the provider codebase to use Terraform SDK v2 [\#91](https://github.com/zarichard/terraform-provider-proxmox/pull/91) ([bpg](https://github.com/bpg))
 
 ENHANCEMENTS:
 
-- Add support for "iothread" disk option for VM [\#87](https://github.com/bpg/terraform-provider-proxmox/issues/87)
+- Add support for "iothread" disk option for VM [\#87](https://github.com/zarichard/terraform-provider-proxmox/issues/87)
 
 BUG FIXES:
 
-- Powered off VM breaks plan/apply [\#105](https://github.com/bpg/terraform-provider-proxmox/issues/105)
-- Disk resize causes reboot [\#102](https://github.com/bpg/terraform-provider-proxmox/issues/102)
-- Typing error - dvResourceVirtualEnvironmentVMAgentEnabled instead of dvResourceVirtualEnvironmentVMAgentTrim [\#101](https://github.com/bpg/terraform-provider-proxmox/issues/101)
-- Error creating VM with multiple disks on different storages [\#88](https://github.com/bpg/terraform-provider-proxmox/issues/88)
+- Powered off VM breaks plan/apply [\#105](https://github.com/zarichard/terraform-provider-proxmox/issues/105)
+- Disk resize causes reboot [\#102](https://github.com/zarichard/terraform-provider-proxmox/issues/102)
+- Typing error - dvResourceVirtualEnvironmentVMAgentEnabled instead of dvResourceVirtualEnvironmentVMAgentTrim [\#101](https://github.com/zarichard/terraform-provider-proxmox/issues/101)
+- Error creating VM with multiple disks on different storages [\#88](https://github.com/zarichard/terraform-provider-proxmox/issues/88)
 
 **Merged pull requests:**
 
-- Fixed Typo  [\#107](https://github.com/bpg/terraform-provider-proxmox/pull/107) ([PrajwalBorkar](https://github.com/PrajwalBorkar))
-- Avoid reboot when resizing disks. [\#104](https://github.com/bpg/terraform-provider-proxmox/pull/104) ([otopetrik](https://github.com/otopetrik))
-- Add support for "iothread" disk option for VM [\#97](https://github.com/bpg/terraform-provider-proxmox/pull/97) ([bpg](https://github.com/bpg))
-- Fix disk import when VM template has multiple disks [\#96](https://github.com/bpg/terraform-provider-proxmox/pull/96) ([bpg](https://github.com/bpg))
+- Fixed Typo  [\#107](https://github.com/zarichard/terraform-provider-proxmox/pull/107) ([PrajwalBorkar](https://github.com/PrajwalBorkar))
+- Avoid reboot when resizing disks. [\#104](https://github.com/zarichard/terraform-provider-proxmox/pull/104) ([otopetrik](https://github.com/otopetrik))
+- Add support for "iothread" disk option for VM [\#97](https://github.com/zarichard/terraform-provider-proxmox/pull/97) ([bpg](https://github.com/bpg))
+- Fix disk import when VM template has multiple disks [\#96](https://github.com/zarichard/terraform-provider-proxmox/pull/96) ([bpg](https://github.com/bpg))
 
-## [v0.5.3](https://github.com/bpg/terraform-provider-proxmox/tree/v0.5.3) (2022-06-02)
+## [v0.5.3](https://github.com/zarichard/terraform-provider-proxmox/tree/v0.5.3) (2022-06-02)
 
-[Full Changelog](https://github.com/bpg/terraform-provider-proxmox/compare/v0.5.2...v0.5.3)
+[Full Changelog](https://github.com/zarichard/terraform-provider-proxmox/compare/v0.5.2...v0.5.3)
 
 **Merged pull requests:**
 
-- Bump hashicorp/go-getter for CVE-2022-30323 fix [\#82](https://github.com/bpg/terraform-provider-proxmox/pull/82) ([bpg](https://github.com/bpg))
-- Update docs [\#57](https://github.com/bpg/terraform-provider-proxmox/pull/57) ([bpg](https://github.com/bpg))
+- Bump hashicorp/go-getter for CVE-2022-30323 fix [\#82](https://github.com/zarichard/terraform-provider-proxmox/pull/82) ([bpg](https://github.com/bpg))
+- Update docs [\#57](https://github.com/zarichard/terraform-provider-proxmox/pull/57) ([bpg](https://github.com/bpg))
 
-## [v0.5.2](https://github.com/bpg/terraform-provider-proxmox/tree/v0.5.2) (2022-05-10)
+## [v0.5.2](https://github.com/zarichard/terraform-provider-proxmox/tree/v0.5.2) (2022-05-10)
 
-[Full Changelog](https://github.com/bpg/terraform-provider-proxmox/compare/v0.5.1...v0.5.2)
+[Full Changelog](https://github.com/zarichard/terraform-provider-proxmox/compare/v0.5.1...v0.5.2)
 
 **Closed issues:**
 
-- proxmox\_virtual\_environment\_file json unmarshalling type issue [\#41](https://github.com/bpg/terraform-provider-proxmox/issues/41)
+- proxmox\_virtual\_environment\_file json unmarshalling type issue [\#41](https://github.com/zarichard/terraform-provider-proxmox/issues/41)
 
-## [v0.5.1](https://github.com/bpg/terraform-provider-proxmox/tree/v0.5.1) (2022-03-22)
+## [v0.5.1](https://github.com/zarichard/terraform-provider-proxmox/tree/v0.5.1) (2022-03-22)
 
-[Full Changelog](https://github.com/bpg/terraform-provider-proxmox/compare/v0.5.0...v0.5.1)
+[Full Changelog](https://github.com/zarichard/terraform-provider-proxmox/compare/v0.5.0...v0.5.1)
 
 BUG FIXES:
 
-- Version mismatch in the code [\#44](https://github.com/bpg/terraform-provider-proxmox/issues/44)
-- virtual\_environment\_datastores.go: Update remote command to get datasource path [\#49](https://github.com/bpg/terraform-provider-proxmox/pull/49) ([mattburchett](https://github.com/mattburchett))
+- Version mismatch in the code [\#44](https://github.com/zarichard/terraform-provider-proxmox/issues/44)
+- virtual\_environment\_datastores.go: Update remote command to get datasource path [\#49](https://github.com/zarichard/terraform-provider-proxmox/pull/49) ([mattburchett](https://github.com/mattburchett))
 
-## [v0.5.0](https://github.com/bpg/terraform-provider-proxmox/tree/v0.5.0) (2021-11-06)
+## [v0.5.0](https://github.com/zarichard/terraform-provider-proxmox/tree/v0.5.0) (2021-11-06)
 
-[Full Changelog](https://github.com/bpg/terraform-provider-proxmox/compare/v0.4.6...v0.5.0)
+[Full Changelog](https://github.com/zarichard/terraform-provider-proxmox/compare/v0.4.6...v0.5.0)
 
 BREAKING CHANGES:
 
-- Bump provider version to 0.5.0 [\#32](https://github.com/bpg/terraform-provider-proxmox/pull/32) ([bpg](https://github.com/bpg))
+- Bump provider version to 0.5.0 [\#32](https://github.com/zarichard/terraform-provider-proxmox/pull/32) ([bpg](https://github.com/bpg))
 
-## [v0.4.6](https://github.com/bpg/terraform-provider-proxmox/tree/v0.4.6) (2021-09-10)
+## [v0.4.6](https://github.com/zarichard/terraform-provider-proxmox/tree/v0.4.6) (2021-09-10)
 
-[Full Changelog](https://github.com/bpg/terraform-provider-proxmox/compare/v0.4.5...v0.4.6)
+[Full Changelog](https://github.com/zarichard/terraform-provider-proxmox/compare/v0.4.5...v0.4.6)
 
 BUG FIXES:
 
-- JSON unmarshal error when deploying LCX container [\#15](https://github.com/bpg/terraform-provider-proxmox/issues/15)
-- \[BUG\] SIGSEGV if cloned VM disk is in the different storage [\#2](https://github.com/bpg/terraform-provider-proxmox/issues/2)
-- fix `make test` error [\#1](https://github.com/bpg/terraform-provider-proxmox/pull/1) ([bpg](https://github.com/bpg))
+- JSON unmarshal error when deploying LCX container [\#15](https://github.com/zarichard/terraform-provider-proxmox/issues/15)
+- \[BUG\] SIGSEGV if cloned VM disk is in the different storage [\#2](https://github.com/zarichard/terraform-provider-proxmox/issues/2)
+- fix `make test` error [\#1](https://github.com/zarichard/terraform-provider-proxmox/pull/1) ([bpg](https://github.com/bpg))
 
-## [v0.4.5](https://github.com/bpg/terraform-provider-proxmox/tree/v0.4.5) (2021-07-16)
+## [v0.4.5](https://github.com/zarichard/terraform-provider-proxmox/tree/v0.4.5) (2021-07-16)
 
-[Full Changelog](https://github.com/bpg/terraform-provider-proxmox/compare/v0.4.4...v0.4.5)
+[Full Changelog](https://github.com/zarichard/terraform-provider-proxmox/compare/v0.4.4...v0.4.5)
 
 ## v0.4.4
 

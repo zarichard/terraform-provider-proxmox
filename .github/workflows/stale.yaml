@@ -9,7 +9,7 @@ jobs:
       issues: write
       pull-requests: write
     steps:
-      - uses: actions/stale@v7
+      - uses: actions/stale@v8
         with:
           repo-token: '${{ secrets.GITHUB_TOKEN }}'
           days-before-stale: 180
@@ -22,7 +22,7 @@ jobs:
           stale-issue-message: >
             Marking this issue as stale due to inactivity in the past 180 days.
             This helps us focus on the active issues. If this issue is
-            reproducible with the [latest](https://github.com/bpg/terraform-provider-proxmox/releases/latest)
+            reproducible with the [latest](https://github.com/zarichard/terraform-provider-proxmox/releases/latest)
             version of the provider, please comment. If this issue receives no
             comments in the next 30 days it will automatically be closed.
             If this issue was automatically closed and you feel this issue
