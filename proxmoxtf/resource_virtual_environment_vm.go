@@ -2082,7 +2082,7 @@ func resourceVirtualEnvironmentVMCreateCustom(
 	//    	returned by API calls, particularly read-back to populate the Terraform state.
 	//		Would it be possible to wait for the VM to be fully available, or to wait for the API to report
 	//		the correct state?
-	// time.Sleep(5 * time.Second)
+	time.Sleep(10 * time.Second)
 
 	return resourceVirtualEnvironmentVMCreateCustomDisks(ctx, d, m)
 }
