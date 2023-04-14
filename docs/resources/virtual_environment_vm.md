@@ -120,6 +120,8 @@ output "ubuntu_vm_public_key" {
 - `bios` - (Optional) The BIOS implementation (defaults to `seabios`).
     - `ovmf` - OVMF (UEFI).
     - `seabios` - SeaBIOS.
+- `boot_order` - (Optional) Specify a list of devices to boot from in the order
+  they appear in the list (defaults to `[]`).
 - `cdrom` - (Optional) The CDROM configuration.
     - `enabled` - (Optional) Whether to enable the CDROM drive (defaults
       to `false`).
@@ -325,6 +327,8 @@ output "ubuntu_vm_public_key" {
       to `vmbr0`).
     - `enabled` - (Optional) Whether to enable the network device (defaults
       to `true`).
+    - `firewall` - (Optional) Whether this interface's firewall rules should be
+        used (defaults to `false`).
     - `mac_address` - (Optional) The MAC address.
     - `model` - (Optional) The network device model (defaults to `virtio`).
         - `e1000` - Intel E1000.
@@ -361,7 +365,8 @@ output "ubuntu_vm_public_key" {
     - `device` - (Optional) The device (defaults to `socket`).
         - `/dev/*` - A host serial device.
         - `socket` - A unix socket.
-- `scsi_hardware` - (Optional) The SCSI hardware type (defaults to `virtio-scsi-pci`).
+- `scsi_hardware` - (Optional) The SCSI hardware type (defaults
+  to `virtio-scsi-pci`).
     - `lsi` - LSI Logic SAS1068E.
     - `lsi53c810` - LSI Logic 53C810.
     - `virtio-scsi-pci` - VirtIO SCSI.
